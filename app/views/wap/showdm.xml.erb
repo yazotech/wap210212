@@ -1,0 +1,15 @@
+<mmi>
+<qj>
+<% s = SoftwareType.find_by_sql('select * from software_types where id=19 ').first %>
+
+ <% SoftwareType.where(:parent_id => s.id ).each do |main_type| %>
+        
+    <% main_type.softwares.each do |so| %>
+<lb>
+<tm><%= so.title %></tm>
+<nr><%= so.description %></nr>
+</lb>
+<% end %>     
+    <% end %>
+</qj>
+</mmi>

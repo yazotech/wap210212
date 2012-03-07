@@ -1,0 +1,11 @@
+<% s = Software.find(params[:id])  %>
+
+<% rl=Resource.where(:resource_data_id => params[:id],:file_type => 'icon').each do |logo|%>
+  <img src="/upload/icon/<%= logo.id %><%= logo.ext%>" width="48px" height="48px"/>
+<% end %>
+        
+        &nbsp;<%= s.title %><br />
+        <% rei=Resource.where(:resource_data_id => params[:id],:file_type => 'img').each do |ri|%>
+          <img src="/upload/img/<%= ri.id%><%= ri.ext%>" /><br />
+        <% end %>
+        简介：<%=raw s.description %>
